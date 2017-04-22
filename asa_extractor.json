@@ -1,0 +1,61 @@
+{
+  "extractors": [
+    {
+      "title": "source",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "source",
+      "extractor_config": {
+        "regex_value": "(?:.*) (?:.*) (?:.*) (.*) (?::.*)"
+      },
+      "condition_type": "none",
+      "condition_value": ""
+    },
+    {
+      "title": "severity level",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 1,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "severity",
+      "extractor_config": {
+        "regex_value": "(?:.*%ASA-)(.)(?:.*)"
+      },
+      "condition_type": "none",
+      "condition_value": ""
+    },
+    {
+      "title": "message",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 3,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "message",
+      "extractor_config": {
+        "regex_value": "(?:.*)(?:%.*: )(.*)"
+      },
+      "condition_type": "none",
+      "condition_value": ""
+    },
+    {
+      "title": "mnemonic",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 2,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "mnemonic",
+      "extractor_config": {
+        "regex_value": "(?:.*%......)(.*[0-9])(?:: .*)"
+      },
+      "condition_type": "none",
+      "condition_value": ""
+    }
+  ],
+  "version": "2.2.0-SNAPSHOT"
+}
